@@ -58,7 +58,15 @@ export default class Ball {
                 this.vx = -this.vx;
             }
         }
-    }// paddleCollision
+    }
+    goal(player) {
+        player.score++;
+        this.reset();
+        console.log(player.score);
+    }
+
+
+
 
     render(svg, player1, player2) {
         // update x position with vector direction
@@ -75,6 +83,16 @@ export default class Ball {
         circle.setAttributeNS(null, 'fill', 'yellow');
         circle.setAttributeNS(null, 'stroke', 'black');
         svg.appendChild(circle);
+
+        const rightGoal = this.x + this.radius >= this.boardWidth;
+        const leftGoal = this.x - this.radius <= 0;
+        if (rightGoal) {
+            this.goal(player1);
+            this.direction = 1;
+        } else if (leftGoal) {
+            this.goal(player2);
+            this.direction = -1;
+        }
     }
 
 
