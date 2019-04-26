@@ -24,6 +24,7 @@ export default class Game {
       ((this.height - this.paddleHeight) / 2),
       KEYS.a,
       KEYS.z,
+      this.color = '#6D0F0F'
     );
 
     this.player2 = new Paddle(
@@ -34,6 +35,7 @@ export default class Game {
       ((this.height - this.paddleHeight) / 2),
       KEYS.up,
       KEYS.down,
+      this.color = '#0066b3'
     );
 
     this.score1 = new Score(this.width / 2 - 50, 30, 30);

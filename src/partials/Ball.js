@@ -6,6 +6,10 @@ export default class Ball {
         this.boardWidth = boardWidth;
         this.boardHeight = boardHeight;
         this.direction = 1;
+
+        this.ping = new Audio('public/sounds/pong-01.wav');
+        this.miss = new Audio('public/sounds/miss.mp3');
+
         this.reset();
     } // End of Constructor
 
@@ -29,6 +33,7 @@ export default class Ball {
 
         if (hitLeft || hitRight) {
             this.vx = -this.vx;
+            this.miss.play();
         } else if (hitTop || hitBottom) {
             this.vy = -this.vy;
         }
@@ -45,6 +50,7 @@ export default class Ball {
                 (this.y >= topY && this.y <= bottomY)
             ) {
                 this.vx = -this.vx;
+                this.ping.play();
             }
         } else {
             // check the player1 collision
@@ -56,6 +62,7 @@ export default class Ball {
                 (this.y >= topY && this.y <= bottomY)
             ) {
                 this.vx = -this.vx;
+                this.ping.play();
             }
         }
     }

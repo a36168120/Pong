@@ -20,7 +20,6 @@ export default class Paddle {
                     break;
             }
         });
-
     } // End of Constructor
     up() {
         this.y = this.y - this.speed;
@@ -36,11 +35,8 @@ export default class Paddle {
         let rightX = x + width;
         let topY = y;
         let bottomY = y + height;
-        return [ leftX, rightX, topY, bottomY ];
+        return [leftX, rightX, topY, bottomY];
     }
-
-
-
 
     render(svg) {
         let rect = document.createElementNS(SVG_NS, 'rect');
@@ -50,10 +46,6 @@ export default class Paddle {
         rect.setAttributeNS(null, 'x', this.x);
         rect.setAttributeNS(null, 'y', this.y);
         rect.setAttributeNS(null, 'rx', 6);
-
         svg.appendChild(rect);
-
     }
-
-
 }
