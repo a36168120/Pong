@@ -37,12 +37,25 @@ export default class Game {
 
     this.ball = new Ball(10, this.width, this.height);
 
-    
+    document.addEventListener('keydown', (event) => {
 
+      switch (event.key) {
+        case KEYS.spaceBar:
+          this.pause = !this.pause;
+          break;
+      }
   
+    });
+
+
   }// End of Constructor...
 
   render() {
+
+    if (this.pause) {
+      return;
+    }
+
     // More code goes here....
     // Copy the code from slids #14...
     this.gameElement.innerHTML = '';
