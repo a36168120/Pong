@@ -32,5 +32,5 @@ A basic pong game using SVGs.
 - individual color for teams (Red vs Blue).
 
 ## Goals failed 
-- Speed pads around the map, that speeds up the ball when passing throught the area.
+- Speed pads around the map, that speeds up the ball when passing through the area.
 - Didn't get background images set up for Red/Blue team.
