@@ -86,12 +86,5 @@ export default class Game {
       this.winner.render(svg, player2Winner);
     }
 
-    if (this.player1.score === 5) {
-      retuen(this.pause);
-    }
-    if (this.player2.score === 5) {
-      retuen(this.pause);
-    }
-
   }
 }
