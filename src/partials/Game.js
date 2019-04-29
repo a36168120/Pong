@@ -3,6 +3,7 @@ import Board from './Board';
 import Paddle from './Paddle';
 import Ball from './Ball';
 import Score from './Score';
+import Winner from './Winner';
 
 export default class Game {
   constructor(element, width, height) {
@@ -40,7 +41,7 @@ export default class Game {
 
     this.score1 = new Score(this.width / 2 - 50, 30, 30);
     this.score2 = new Score(this.width / 2 + 25, 30, 30);
-
+    this.winner = new Winner(150, 100, 40);
 
 
     this.ball = new Ball(10, this.width, this.height);
@@ -77,6 +78,20 @@ export default class Game {
     this.score1.render(svg, this.player1.score);
     this.score2.render(svg, this.player2.score);
 
+    const player1Winner = 'Red Wins!';
+    const player2Winner = 'Blue Wins!';
+    if (this.player1.score === 5) {
+      this.winner.render(svg, player1Winner);
+    } else if (this.player2.score === 5) {
+      this.winner.render(svg, player2Winner);
+    }
+
+    if (this.player1.score === 5) {
+      retuen(this.pause);
+    }
+    if (this.player2.score === 5) {
+      retuen(this.pause);
+    }
 
   }
 }
